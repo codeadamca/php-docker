@@ -1,6 +1,6 @@
 # demo-docker
 
-A basic example of some common Docker stacks. 
+A basic example of setting up a LAMP stack from scratch using Docker. 
 
 ## Tutorial Requirements:
 
