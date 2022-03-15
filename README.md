@@ -1,4 +1,4 @@
-# demo-docker
+# php-docker
 
 A basic example of setting up a LAMP stack from scratch using Docker. 
 
