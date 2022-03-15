@@ -1,0 +1,43 @@
+version: '3'
+services:
+  db:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: lamp_demo
+      MYSQL_USER: lamp_demo
+      MYSQL_PASSWORD: password
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    networks:
+      - lamp-demo
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+  www:
+    depends_on:
+      - db
+    image: php:8.0.2-apache-buster
+    volumes:
+      - "./:/var/www/html"
+    build:
+      context: ./www
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - lamp-demo
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      - PMA_HOST=db
+      - PMA_PORT=3306
+    ports:
+      - 8001:80
+    networks:
+      - lamp-demo
+networks:
+  lamp-demo:
+    driver: bridge
