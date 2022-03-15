@@ -2,6 +2,8 @@
 
 A basic example of setting up a LAMP stack from scratch using Docker. 
 
+Create a file in your project directory called ```docker-compose.yml``` and add the following Docker settings:
+
 ```yml
 version: '3'
 services:
@@ -41,6 +43,18 @@ services:
 networks:
   lamp-docker:
     driver: bridge
+```
+
+Using a terminal, navigate to the same folder as your ```docker-compose.yml``` file and run the following command:
+
+```
+docker-compose up
+```
+
+To shut the container down push ```CTRL C``` and then run the folloeing command:
+
+```
+docker-composer down
 ```
 
 ## Tutorial Requirements:
