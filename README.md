@@ -65,6 +65,7 @@ Apache and PHP 8.1 should be woking and the output of index.php should be shown 
 You can also try http://localhost/phpinfo.php to see the output of that script (PHP_INFO).
 
 phpmyadmin should also be available browsing to http://localhost:8080
+
 Login as root:password for full access or as lamp_demo:password for limited access to the lamp_demo database only.
 
 make changes as needed for your particular project.
