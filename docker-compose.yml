@@ -1,4 +1,4 @@
-version: '3'
+version: '4'
 services:
   db:
     image: mysql:latest
@@ -6,7 +6,7 @@ services:
       MYSQL_DATABASE: lamp_demo
       MYSQL_USER: lamp_demo
       MYSQL_PASSWORD: password
-      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_ROOT_PASSWORD: password
     volumes:
       - "./db:/docker-entrypoint-initdb.d"
     networks:
@@ -14,7 +14,7 @@ services:
   www:
     depends_on:
       - db
-    image: php:8.1.1-apache
+    image: sohmc/php-mysqli:8.1-apache
     volumes:
       - "./:/var/www/html"
     ports:
@@ -26,11 +26,11 @@ services:
     depends_on:
       - db
     image: phpmyadmin/phpmyadmin
-    ports:
-      - 8001:80
     environment:
-      - PMA_HOST=db
-      - PMA_PORT=3306
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+     - 8080:80
     networks:
       - lamp-docker
 networks:
