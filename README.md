@@ -1,3 +1,31 @@
+## Hear ye, hear ye! Mac OSX Monterrey users wanting use port 80
+
+By default Apache comes bundled with Mac OS X but it’s deactivated. You may have started Apache on the system and even set it to come up automatically when the system starts up or reboots. 
+
+If you want to use port 80. Disable the native Apache
+
+Check if Apache is running under the user \_www with:
+
+```sh
+sudo lsof -i:80 
+```
+
+To stop the built-in Apache server in Mac OS X use this command:
+
+```sh
+sudo apachectl -k stop
+```
+
+Then just enter your administrator password. And to prevent Apache from coming up again on if your system reboots/restarts just run this launchctl unload command (you’ll need your administrator password again):
+
+```sh
+sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist
+```
+
+When that’s all done, you can check the output of sudo lsof -i:80 to confirm if the built-in Apache web server in Mac OS X should is stopped and disabled.
+
+***
+
 # Using Docker to Setup a Basic Lamp Environment
 
 A basic example of setting up a LAMP stack from scratch using Docker. 
@@ -71,27 +99,3 @@ Login as root:password for full access or as lamp_demo:password for limited acce
 Make changes as needed for your particular project.
 
 Enjoy!
-
-***
-
-## Mac OSX Monterrey Users
-
-By default Apache comes bundled with Mac OS X but it’s deactivated. So my assumption is you simply started Apache on the system and even set it to come up automatically when the system starts up or reboots. Check if Apache is running under the user \_www with:
-
-```sh
-sudo lsof -i:80 
-```
-
-To stop the built-in Apache server in Mac OS X use this command:
-
-```sh
-sudo apachectl -k stop
-```
-
-Then just enter your administrator password. And to prevent Apache from coming up again on if your system reboots/restarts just run this launchctl unload command (you’ll need your administrator password again):
-
-```sh
-sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist
-```
-
-When that’s all done, you can check the output of sudo lsof -i:80 to confirm if the built-in Apache web server in Mac OS X should is stopped and disabled.
