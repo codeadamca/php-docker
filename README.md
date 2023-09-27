@@ -68,7 +68,7 @@ phpmyadmin should also be available browsing to http://localhost:8080
 
 Login as root:password for full access or as lamp_demo:password for limited access to the lamp_demo database only.
 
-make changes as needed for your particular project.
+Make changes as needed for your particular project.
 
 Enjoy!
 
