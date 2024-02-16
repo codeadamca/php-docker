@@ -29,6 +29,7 @@ services:
       - 443:443
     networks:
       - lamp-docker
+    command: "/bin/sh -c 'docker-php-ext-install mysqli && exec apache2-foreground'"
   phpmyadmin:
     depends_on:
       - db
