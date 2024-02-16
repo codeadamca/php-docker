@@ -2,22 +2,20 @@
 
 $connect = mysqli_connect(
     'db',
-    'lamp_demo',
+    'demo',
     'password',
-    'lamp_demo'
+    'demo'
 );
 
 $query = 'SELECT *
-    FROM blog';
+    FROM colours';
 $result = mysqli_query($connect, $query);
 
 echo '<h1>MySQL Content:</h1>';
 
 while($record = mysqli_fetch_assoc($result))
 {
-    echo '<h2>'.$record['title'].'</h2>';
-    echo '<p>'.$record['content'].'</p>';
-    echo 'Posted: '.$record['date'];
+    echo '<h2>'.$record['name'].'</h2>';
     echo '<hr>';
 }
 
