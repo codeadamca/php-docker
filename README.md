@@ -58,6 +58,7 @@ To shut the container down push `CTRL C` and then run the folloeing command:
 docker-composer down
 ```
 
+> The most recent image of PHP and Apache does not include. 
 ***
 
 ## Repo Resources
@@ -65,6 +66,7 @@ docker-composer down
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Docker](https://www.docker.com/)
 * [PHP](https://php.net)
+
 
 <a href="https://codeadam.ca">
 <img src="https://codeadam.ca/images/code-block.png" width="100">
