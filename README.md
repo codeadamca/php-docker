@@ -58,7 +58,10 @@ To shut the container down push `CTRL C` and then run the folloeing command:
 docker-composer down
 ```
 
-> The most recent image of PHP and Apache does not include. 
+> [!Note]  
+> The most recent PHP/Apache Docker image does not include the `mysqli` library. This additional step needs to be completed:  
+> https://github.com/docker-library/php/issues/391
+
 ***
 
 ## Repo Resources
