@@ -1,0 +1,31 @@
+version: "3"
+services:
+  www:
+    depends_on: 
+      - db
+    image: php:8.4.3-apache
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./www:/var/www/html
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: demo
+      MYSQL_USER: demo
+      MYSQL_PASSWORD: password
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin:latest
+    ports:
+      - 81:80
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+
+# localhost:81
+# Log in using demo and password
+    
